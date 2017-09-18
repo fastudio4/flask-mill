@@ -2,3 +2,7 @@
 /vr/
 /.idea/
 /__pycache__/
+mill/__pycache__/
+mill/calculations/__pycache__/
+mill/forms/__pycache__/
+*.pyc
