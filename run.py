@@ -23,4 +23,5 @@ def index():
         return render_template('output.html', output=value.setting, input=input)
     return render_template('input.html', form=form)
 
-
+if __name__ == '__main__':
+    app.run()
