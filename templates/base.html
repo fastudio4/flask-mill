@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='cover.css')}}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Milling calculator</title>
+</head>
+<body>
+    <div class="site-wrapper">
+        <div class="site-wrapper-inner">
+            <div class="cover-container">
+                <div class="inner">
+                    <h1><span class="glyphicon glyphicon-flash"></span> Milling processing calculator</h1>
+                    <p><strong>Calculator for CNC milling machines with the use of classic milling cutters!</strong></p>
+                    <br>
+                    {% block content %}{% endblock %}
+                    <p class="text-center">Creator <a href="https://www.facebook.com/fastudio4" target="_blank">Kostiantyn Fastov</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
