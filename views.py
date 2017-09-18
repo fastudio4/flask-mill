@@ -2,10 +2,10 @@ from calc import Milling
 from flask import Flask, render_template
 from form import MillInput
 
-mill = Flask(__name__)
-mill.secret_key = 'mill-calculation-python-flask'
+app = Flask(__name__)
+app.secret_key = 'mill-calculation-python-flask'
 
-@mill.route('/', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def index():
     form = MillInput()
     if form.validate_on_submit():
@@ -23,4 +23,4 @@ def index():
         return render_template('output.html', output=value.setting, input=input)
     return render_template('input.html', form=form)
 
-mill.run(debug=False)
+
