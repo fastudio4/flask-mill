@@ -15,6 +15,9 @@ class Milling(object):
     def spindle_speed(self, cutting_speed):
         return int(round((1000 * cutting_speed)/(pi * self.d_cut), 0))
 
+    def frequency_speed(self, speed):
+        return int((speed * self.max_frequency) / self.max_speed_spindle)
+
     def fz_materials(self):
         val = int(self.d_cut)
         if 0 < val <= 1:
@@ -54,7 +57,9 @@ class Milling(object):
                 'mean_feed': mean([self.feed(min_speed_spindle), self.feed(max_speed_spindle)]),
                 'max_feed': self.feed(max_speed_spindle),
                 'fz': db_milling[self.material]['fz'][self.fz_materials()] * self.t_cut,
-                'embed': round(self.d_cut, 1)
+                'frequency_min': self.frequency_speed(min_speed_spindle),
+                'frequency_mean': mean([self.frequency_speed(min_speed_spindle), self.frequency_speed(max_speed_spindle)]),
+                'frequency_max': self.frequency_speed(max_speed_spindle)
             }
 
         return {
@@ -68,5 +73,7 @@ class Milling(object):
             'mean_feed': mean([self.feed(min_speed), self.feed(max_speed)]),
             'max_feed': self.feed(max_speed),
             'fz': db_milling[self.material]['fz'][self.fz_materials()] * self.t_cut,
-            'embed': self.d_cut
+            'frequency_min': self.frequency_speed(min_speed),
+            'frequency_mean': mean([self.frequency_speed(min_speed), self.frequency_speed(max_speed)]),
+            'frequency_max': self.frequency_speed(max_speed)
         }
