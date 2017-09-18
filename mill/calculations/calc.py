@@ -33,7 +33,7 @@ class Milling(object):
             return None
 
     def feed(self, spindle_speed):
-        return spindle_speed * db_milling[self.material]['fz'][self.fz_materials()] * self.t_cut
+        return int(round((spindle_speed * db_milling[self.material]['fz'][self.fz_materials()] * self.t_cut)/60, 0))
 
     def min_max_speed(self):
         min_speed = self.spindle_speed(db_milling[self.material]['min_cut'])
