@@ -15,7 +15,7 @@ class MillInput(FlaskForm):
                                      ('Cast iron', 'Cast iron'),
                                      ('Titanium', 'Titanium')],
                             render_kw={'class': 'form-control'})
-    diameter_mill = FloatField(label='Cutter diameter',
+    diameter_mill = FloatField(label='Cutter diameter (mm)',
                                validators=[InputRequired()],
                                render_kw={'class': 'form-control',
                                           'placeholder': 3.175})
@@ -28,12 +28,12 @@ class MillInput(FlaskForm):
                                      ('5', 5),
                                      ('6', 6)],
                             render_kw={'class': 'form-control'})
-    speed_spindel = IntegerField(label='Max speed spindle',
+    speed_spindel = IntegerField(label='Max speed spindle (rpm\min)',
                                  validators=[InputRequired()],
                                  render_kw={'class': 'form-control',
                                             'placeholder': 24000,
                                             'maxlength':5})
-    frequency_spindle = IntegerField(label='Max frequency spindle',
+    frequency_spindle = IntegerField(label='Max frequency spindle (Hz)',
                                      validators=[InputRequired()],
                                      render_kw={'class': 'form-control',
                                                 'placeholder': 400,
